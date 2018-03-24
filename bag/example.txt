@@ -1,0 +1,22 @@
+#include <time.h> //benchmark 
+    const unsigned long long nano = 1000000000;
+        unsigned long long t1, t2;
+
+        struct timespec tm;
+
+        for(;;)
+        {
+
+                clock_gettime( CLOCK_REALTIME, &tm );
+                t1 = tm.tv_nsec + tm.tv_sec * nano;
+                ///start of game processes
+                usleep( 70000  );//
+                ///end of game processes
+                usleep( MICROSEC );
+
+                clock_gettime( CLOCK_REALTIME, &tm );
+                t2 = tm.tv_nsec + tm.tv_sec * nano;
+
+                printf( "delay: %ld\n", ( t2 - t1 ) / 1000 );
+        }
+

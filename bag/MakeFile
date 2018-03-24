@@ -1,0 +1,5 @@
+CC = gcc
+CFLAGS = -Wall
+
+bag: main.o input.o move.o printScreen.o clearScreen.o
+	$(CC) -o bag main.o input.o move.o printScreen.o clearScreen.o
